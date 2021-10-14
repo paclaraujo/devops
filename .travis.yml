@@ -7,3 +7,6 @@ python:
                                                                                                                                           
 install:                                                                                                                                                                                                 
   - pip install flask pytest
+
+script:                                                                                                                                                                                                  
+  - pytest -v test.py
