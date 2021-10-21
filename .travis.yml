@@ -3,13 +3,19 @@ dist: focal
 language: python                                                                                                                                                                                         
                                                                                                                                                                        
 python:                                                                                                                                                                                                  
-  - "3.8"                                                                                                                                                                                              
+  - "3.8"
+
+addons:
+  sonarcloud:
+    organization: paclaraujo
+    token: ${SONAR_TOKEN}                                                                                                                                                                                              
                                                                                                                                           
 install:                                                                                                                                                                                                 
   - pip install flask pytest
 
 script:                                                                                                                                                                                                  
   - pytest -v test.py
+  - sonar-scanner || travis_terminate 1;
 
 deploy:
   provider: heroku
@@ -17,4 +23,4 @@ deploy:
   edge: true 
   app: devops-paloma
   on:
-      branch: main
+    branch: main
