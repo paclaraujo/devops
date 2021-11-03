@@ -12,6 +12,7 @@ addons:
                                                                                                                                           
 install:                                                                                                                                                                                                 
   - pip install flask pytest
+  - pip install flask pytest flask-wtf
 
 script:                                                                                                                                                                                                  
   - pytest -v test.py
